@@ -6,6 +6,8 @@ All containers in the `docker-compose.yml` file would share the same network. Al
 
 ## DNS Resolution ##
 
+[Pihole](https://pi-hole.net/)
+
 In `etc/resolv.conf` on the host machine, add an additional nameserver pointing to `127.0.0.1`
 
 ```
@@ -21,7 +23,9 @@ nameserver 8.8.8.8
 Note the `CORS_HOSTS` mapping in the docker compose configuration. This should point to the 
 The DNS and CNAME configurations are present inside the `pihole` folder. Update it and restart the `pihole` service using `restartService.sh pihole`.
 
-## Nginx Reverse proxy##
+## Nginx Reverse proxy ##
+
+[Nginx](https://nginx.org/en/)
 
 #### Self signed certificate ####
 
@@ -35,11 +39,11 @@ The NGINX configurations are present inside the `pihole` folder. Update it and r
 
 ## All app configurations ##
 
-| App        | Url                    |
-|------------|------------------------|
-| Flame      | https://dash.home      |
-| PiHole     | https://dns.home/admin |
-| excalidraw | https://draw.home      |
+| App                                          | Url                    | Description      |
+|----------------------------------------------|------------------------|------------------|
+| [Flame](https://github.com/pawelmalak/flame) | https://dash.home      | Dashboard        |
+| [Pihole](https://pi-hole.net/)               | https://dns.home/admin | DNS Management   |
+| [Excalidraw](https://excalidraw.com)         | https://draw.home      | Diagramming tool |
 
 ## TODOS ##
 
@@ -47,12 +51,10 @@ The NGINX configurations are present inside the `pihole` folder. Update it and r
 - [ ] Media streaming - CalibreWeb, sonarr, radarr, jackett etc
 - [ ] Storage server
 - [ ] Monitoring
-   - [ ] Bike
-   - [ ] Phone
-- [ ] Blog server
 - [ ] Genealogy
 - [ ] Password manager
 - [ ] Note taking
 - [ ] Photos
+- [ ] Blog server
 
 
