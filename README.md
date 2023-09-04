@@ -1,27 +1,27 @@
 # Home Lab #
 
-## Pihole ##
+## Network ##
 
-In `etc/resolv.conf` on the host machine, add additional nameserver pointing to `127.0.0.1`
+All containers in the `docker-compose.yml` file would share the same network. All the containers are addressible by the `container_name` hostname as it appears in the docker compose configuration file.
+
+## DNS Resolution ##
+
+In `etc/resolv.conf` on the host machine, add an additional nameserver pointing to `127.0.0.1`
 
 ```
 nameserver 127.0.0.1 #pihole
 nameserver 8.8.8.8
 ```
 
-Hostport - 8053
-Dockerport - 80
-Admin UI - localhost:8053/admin
-DNS - dns.home.lan
-
 - By default, pihole will be consulted as the dns for your system. If it fails, then your default nameservers will be used.
 - For the docker containers, pihole will still be used as a dns solution because by default the host system's dns resolver is used.
-- Under `Local DNS` setup a DNS pointing to `127.0.0.1` for `home.lan`.
-- For every service that needs to be exposed, create a CNAME record, pointing to `home.lan`. Example, create a CNAME `draw.home.lan` pointing to `home.lan`, and configure the port `5000` of `excalidraw` for the domain `draw.home.lan` in nginx. Do not use `home.lan` subdomains inside nginx or any docker container as it would always resolve to localhost.
+- Under `Local DNS` setup a DNS pointing to `127.0.0.1` for `home`.
+- For every service that needs to be exposed, create a CNAME record, pointing to `home`. Example, create a CNAME `draw.home` pointing to `home`, and configure proxy pass for the port `5000` of the docker host `excalidraw` for the domain `draw.home` in nginx. Do not use `home` subdomains inside nginx or any docker container as it would always resolve to localhost.
 
-TODO: While using nginx https, CNAME records do not populate on the UI, need to directly use `http://localhost:8053/admin`. Till then this additional mapping cannot be removed.
+Note the `CORS_HOSTS` mapping in the docker compose configuration. This should point to the 
+The DNS and CNAME configurations are present inside the `pihole` folder. Update it and restart the `pihole` service appropriate when required using `restartService.sh pihole`.
 
-## Nginx ##
+## Nginx Reverse proxy##
 
 #### Self signed certificate ####
 
@@ -33,8 +33,8 @@ TODO: While using nginx https, CNAME records do not populate on the UI, need to 
 
 ## All app configurations ##
 
-App | Url
--|-
-PiHole|https://dns.home/admin
-excalidraw|https://draw.home
+| App        | Url                    |
+|------------|------------------------|
+| PiHole     | https://dns.home/admin |
+| excalidraw | https://draw.home      |
 

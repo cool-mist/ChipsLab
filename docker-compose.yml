@@ -20,15 +20,17 @@ services:
       - "8053:80/tcp"
     environment:
       TZ: 'Asia/Calcutta'
+      CORS_HOSTS: dns.home
       WEBPASSWORD: changeme
     volumes:
       - './.volumes/pihole/etc-pihole:/etc/pihole'
       - './.volumes/pihole/etc-dnsmasq.d:/etc/dnsmasq.d'
+      - './pihole/custom.list:/etc/pihole/custom.list:ro'
+      - './pihole/05-pihole-custom-cname.conf:/etc/dnsmasq.d/05-pihole-custom-cname.conf:ro'
     restart: unless-stopped
 
   excalidraw:
     image: 'excalidraw/excalidraw:latest'
     container_name: excalidraw
     restart: unless-stopped
-
 
