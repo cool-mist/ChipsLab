@@ -1,4 +1,4 @@
-# Home Lab #
+# Home Lab (WIP) #
 
 ## All app configurations ##
 
