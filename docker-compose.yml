@@ -29,6 +29,16 @@ services:
       - './pihole/05-pihole-custom-cname.conf:/etc/dnsmasq.d/05-pihole-custom-cname.conf:ro'
     restart: unless-stopped
 
+  dashboard:
+    container_name: dashboard
+    image: pawelmalak/flame
+    #image: pawelmalak/flame:multiarch #for Raspberry PI
+    volumes:
+      - './.volumes/dashboard/app-data:/app/data'
+      - '/var/run/docker.sock:/var/run.docker.sock'
+    environment:
+      - PASSWORD=changeme
+
   excalidraw:
     image: 'excalidraw/excalidraw:latest'
     container_name: excalidraw

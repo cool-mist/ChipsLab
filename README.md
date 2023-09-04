@@ -19,7 +19,7 @@ nameserver 8.8.8.8
 - For every service that needs to be exposed, create a CNAME record, pointing to `home`. Example, create a CNAME `draw.home` pointing to `home`, and configure proxy pass for the port `5000` of the docker host `excalidraw` for the domain `draw.home` in nginx. Do not use `home` subdomains inside nginx or any docker container as it would always resolve to localhost.
 
 Note the `CORS_HOSTS` mapping in the docker compose configuration. This should point to the 
-The DNS and CNAME configurations are present inside the `pihole` folder. Update it and restart the `pihole` service appropriate when required using `restartService.sh pihole`.
+The DNS and CNAME configurations are present inside the `pihole` folder. Update it and restart the `pihole` service using `restartService.sh pihole`.
 
 ## Nginx Reverse proxy##
 
@@ -31,10 +31,28 @@ The DNS and CNAME configurations are present inside the `pihole` folder. Update 
 - May need to still accept promts the first time this is accessed from the browser.
 - To remove, `sudo trust anchor --remove cert.crt`. Alternatively, remove it from `/etc/ca-certificates/trust-source/`
 
+The NGINX configurations are present inside the `pihole` folder. Update it and restart the `nginx` service using `restartService.sh nginx`.
+
 ## All app configurations ##
 
 | App        | Url                    |
 |------------|------------------------|
+| Flame      | https://dash.home      |
 | PiHole     | https://dns.home/admin |
 | excalidraw | https://draw.home      |
+
+## TODOS ##
+
+- [ ] Autoconfiguration of dashboard
+- [ ] Media streaming - CalibreWeb, sonarr, radarr, jackett etc
+- [ ] Storage server
+- [ ] Monitoring
+   - [ ] Bike
+   - [ ] Phone
+- [ ] Blog server
+- [ ] Genealogy
+- [ ] Password manager
+- [ ] Note taking
+- [ ] Photos
+
 
