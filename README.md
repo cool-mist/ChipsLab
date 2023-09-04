@@ -1,5 +1,14 @@
 # Home Lab #
 
+## All app configurations ##
+
+| App                                          | Url                    | Description                |
+|----------------------------------------------|------------------------|----------------------------|
+| [Nginx](https://nginx.org/en/)               | NA                     | Reverse proxy for all apps |
+| [Flame](https://github.com/pawelmalak/flame) | https://dash.home      | Dashboard                  |
+| [Pihole](https://pi-hole.net/)               | https://dns.home/admin | DNS Management             |
+| [Excalidraw](https://excalidraw.com)         | https://draw.home      | Diagramming tool           |
+
 ## Network ##
 
 All containers in the `docker-compose.yml` file would share the same network. All the containers are addressible by the `container_name` hostname as it appears in the docker compose configuration file.
@@ -36,14 +45,6 @@ The DNS and CNAME configurations are present inside the `pihole` folder. Update 
 - To remove, `sudo trust anchor --remove cert.crt`. Alternatively, remove it from `/etc/ca-certificates/trust-source/`
 
 The NGINX configurations are present inside the `pihole` folder. Update it and restart the `nginx` service using `restartService.sh nginx`.
-
-## All app configurations ##
-
-| App                                          | Url                    | Description      |
-|----------------------------------------------|------------------------|------------------|
-| [Flame](https://github.com/pawelmalak/flame) | https://dash.home      | Dashboard        |
-| [Pihole](https://pi-hole.net/)               | https://dns.home/admin | DNS Management   |
-| [Excalidraw](https://excalidraw.com)         | https://draw.home      | Diagramming tool |
 
 ## TODOS ##
 
