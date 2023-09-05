@@ -2,12 +2,15 @@
 
 ## All app configurations ##
 
-| App                                          | Url                    | Description                |
-|----------------------------------------------|------------------------|----------------------------|
-| [Nginx](https://nginx.org/en/)               | NA                     | Reverse proxy for all apps |
-| [Flame](https://github.com/pawelmalak/flame) | https://dash.home      | Dashboard                  |
-| [Pihole](https://pi-hole.net/)               | https://dns.home/admin | DNS Management             |
-| [Excalidraw](https://excalidraw.com)         | https://draw.home      | Diagramming tool           |
+| App                                                       | Url                    | Description                |
+|-----------------------------------------------------------|------------------------|----------------------------|
+| [Nginx](https://nginx.org/en/)                            | NA                     | Reverse proxy for all apps |
+| [Flame](https://github.com/pawelmalak/flame)              | https://dash.home      | Dashboard                  |
+| [Pihole](https://pi-hole.net/)                            | https://dns.home/admin | DNS Management             |
+| [Excalidraw](https://excalidraw.com)                      | https://draw.home      | Diagramming tool           |
+| [Portainer](https://www.portainer.io)                     | https://docker.home    | Docker containers UI       |
+| [Vaultwarden](https://github.com/dani-garcia/vaultwarden) | https://vault.home     | Password manager           |
+
 
 ## Network ##
 
@@ -57,5 +60,6 @@ The NGINX configurations are present inside the `pihole` folder. Update it and r
 - [ ] Note taking
 - [ ] Photos
 - [ ] Blog server
+- [ ] AI
 
 
