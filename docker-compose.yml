@@ -21,7 +21,7 @@ services:
     environment:
       TZ: 'Asia/Calcutta'
       CORS_HOSTS: dns.home
-      WEBPASSWORD: changeme
+      WEBPASSWORD: 
     volumes:
       - './.volumes/pihole/etc-pihole:/etc/pihole'
       - './.volumes/pihole/etc-dnsmasq.d:/etc/dnsmasq.d'
@@ -35,7 +35,6 @@ services:
     #image: pawelmalak/flame:multiarch #for Raspberry PI
     volumes:
       - './.volumes/dashboard/app-data:/app/data'
-      - '/var/run/docker.sock:/var/run.docker.sock'
     environment:
       - PASSWORD=changeme
 
@@ -44,3 +43,20 @@ services:
     container_name: excalidraw
     restart: unless-stopped
 
+  portainer:
+    image: 'portainer/portainer-ce'
+    container_name: portainer
+    command: -H unix:///var/run/docker.sock
+    volumes:
+      - '/var/run/docker.sock:/var/run/docker.sock'
+      - './.volumes/portainer/data:/data'
+    environment:
+      TZ: 'Asia/Calcutta'
+    restart: unless-stopped
+
+  vault:
+    image: 'vaultwarden/server:latest'
+    container_name: vaultwarden
+    volumes:
+      - './vault/data:/data'
+    restart: unless-stopped
