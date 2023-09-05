@@ -60,3 +60,13 @@ services:
     volumes:
       - './vault/data:/data'
     restart: unless-stopped
+
+  prowlarr:
+    image: 'ghcr.io/hotio/prowlarr'
+    container_name: prowlarr
+    environment:
+      TZ: 'Asia/Calcutta'
+    volumes:
+      - './.volumes/prowlarr/config:/config'
+
+
