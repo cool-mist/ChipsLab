@@ -2,6 +2,8 @@
 
 ## All app configurations ##
 
+This doc is not complete. WIP - Add all the media containers to the list below
+
 | App                                                       | Url                    | Description                |
 |-----------------------------------------------------------|------------------------|----------------------------|
 | [Nginx](https://nginx.org/en/)                            | NA                     | Reverse proxy for all apps |
@@ -49,17 +51,27 @@ The DNS and CNAME configurations are present inside the `pihole` folder. Update 
 
 The NGINX configurations are present inside the `pihole` folder. Update it and restart the `nginx` service using `restartService.sh nginx`.
 
+## Media Server ##
+
+#### Torrent Client ####
+
+Check [this](https://stackoverflow.com/questions/75536471/rtorrent-docker-container-failing-to-start-saying-stdbad-alloc) if facing issues
+
+
 ## TODOS ##
 
 - [ ] Autoconfiguration of dashboard
-- [ ] Media streaming - CalibreWeb, sonarr, radarr, jackett etc
+- [ ] Complete the doc
+- [x] Media streaming - sonarr, radarr, jackett etc
 - [ ] Storage server
 - [ ] Monitoring
 - [ ] Genealogy
-- [ ] Password manager
+- [x] Password manager
 - [ ] Note taking
 - [ ] Photos
 - [ ] Blog server
 - [ ] AI
+- [ ] Calibre web
+- [ ] Calendar
 
 

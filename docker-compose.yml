@@ -63,10 +63,124 @@ services:
 
   prowlarr:
     image: 'ghcr.io/hotio/prowlarr'
-    container_name: prowlarr
+    container_name: indexer
     environment:
+      PUID: 1000
+      PGID: 1000
       TZ: 'Asia/Calcutta'
     volumes:
-      - './.volumes/prowlarr/config:/config'
+      - '/home/chips/media/configs/prowlarr:/config'
+    restart: unless-stopped
 
+  sonarr:
+    image: 'linuxserver/sonarr'
+    container_name: series
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: 'Asia/Calcutta'
+    volumes:
+      - '/home/chips/media/configs/sonarr:/config'
+      - '/home/chips/media/files/sonarr:/data'
+      - '/home/chips/media/files/transmission:/downloads'
+    restart: unless-stopped
 
+  radarr:
+    image: 'linuxserver/radarr'
+    container_name: movies
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: 'Asia/Calcutta'
+    volumes:
+      - '/home/chips/media/configs/radarr:/config'
+      - '/home/chips/media/files/radarr:/data'
+      - '/home/chips/media/files/transmission:/downloads'
+    restart: unless-stopped
+
+  lidarr:
+    image: 'ghcr.io/linuxserver/lidarr'
+    container_name: music
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: 'Asia/Calcutta'
+    volumes:
+      - '/home/chips/media/configs/lidarr:/config'
+      - '/home/chips/media/files/lidarr:/data'
+      - '/home/chips/media/files/transmission:/downloads'
+    restart: unless-stopped
+
+  readarr:
+    image: 'hotio/readarr:nightly'
+    container_name: books
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: 'Asia/Calcutta'
+    volumes:
+      - '/home/chips/media/configs/readarr:/config'
+      - '/home/chips/media/files/readarr:/data'
+      - '/home/chips/media/files/transmission:/downloads'
+    restart: unless-stopped
+
+  bazarr:
+    image: 'ghcr.io/linuxserver/bazarr'
+    container_name: subtitles
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: 'Asia/Calcutta'
+    volumes:
+      - '/home/chips/media/configs/bazarr:/config'
+      - '/home/chips/media/files/bazarr:/data'
+      - '/home/chips/media/files/transmission:/downloads'
+    restart: unless-stopped
+
+  jellyfin:
+    image: 'jellyfin/jellyfin'
+    container_name: entertainment
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: 'Asia/Calcutta'
+    devices:
+      - '/dev/dri/renderD128:/dev/dri/renderD128'
+      - '/dev/dri/card0:/dev/dri/card0'
+    volumes:
+      - '/home/chips/media/configs/jellyfin:/config'
+      - '/home/chips/media/files:/data'
+    restart: unless-stopped
+
+  ombi:
+    image: 'ghcr.io/linuxserver/ombi'
+    container_name: request
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: 'Asia/Calcutta'
+    volumes:
+      - '/home/chips/media/configs/ombi:/config'
+    restart: unless-stopped
+
+  transmission:
+    image: lscr.io/linuxserver/transmission:latest
+    container_name: transmission
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: 'Asia/Calcutta'
+      TRANSMISSION_WEB_HOME: #optional
+      USER: #optional
+      PASS: #optional
+      WHITELIST: #optional
+      PEERPORT: #optional
+      HOST_WHITELIST: #optional
+    volumes:
+      - '/home/chips/media/configs/transmission:/config'
+      - '/home/chips/media/files/transmission:/downloads'
+    # Ports:
+    #   - 9091:9091
+    #   - 51413:51413
+    #   - 51413:51413/udp
+    restart: unless-stopped
