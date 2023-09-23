@@ -53,6 +53,11 @@ nameserver 8.8.8.8
 
 The NGINX configurations are present inside the `pihole` folder. Update it and restart the `nginx` service using `restartService.sh nginx`.
 
+## Password Manager ##
+
+- Done via vaultwarden. Compatible with bitwarden clients (browser extensions etc).
+- Volume added manually as part of `scripts/setup.sh` to avoid checking that in to version control.
+
 ## Media Server ##
 
 The following set of services forms the media server stack of the home lab. Only the movies and tv services are configured. _Disclaimer: I don't endorse/encourage piracy._
@@ -91,6 +96,7 @@ The following set of services forms the media server stack of the home lab. Only
 - [ ] Storage server
 - [ ] Monitoring
 - [ ] Genealogy
+- [ ] Database
 - [x] Password manager
 - [ ] Note taking
 - [ ] Photos
