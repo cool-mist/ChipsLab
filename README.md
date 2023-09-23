@@ -5,7 +5,7 @@
 | App                                                       | Url                                        | Description                |
 |-----------------------------------------------------------|--------------------------------------------|----------------------------|
 | [Nginx](https://nginx.org/en/)                            | NA                                         | Reverse proxy for all apps |
-| [Flame](https://github.com/pawelmalak/flame)              | https://dash.home                          | Dashboard                  |
+| [Homepage](https://github.com/benphelps/homepage)         | https://dash.home                          | Dashboard                  |
 | [Pihole](https://pi-hole.net/)                            | https://dns.home/admin                     | DNS Management             |
 | [Excalidraw](https://excalidraw.com)                      | https://draw.home                          | Diagramming tool           |
 | [Portainer](https://www.portainer.io)                     | https://docker.home                        | Docker containers UI       |
@@ -14,6 +14,7 @@
 | [Transmission](https://transmissionbt.com/)               | https://torrent.home                       | Torrent client             |
 | [Sonarr](https://sonarr.tv/)                              | https://series.home                        | TV show monitoring         |
 | [Radarr](https://radarr.video/)                           | https://movies.home                        | Movie monitoring           |
+| [Bazarr](https://www.bazarr.media/)                       | https://subtitles.home                     | Subtitles monitoring       |
 | [Jellyfin](https://jellyfin.org/)                         | https://entertainment.home, http://IP:8096 | Media server               |
 | [Ombi](https://ombi.io/)                                  | https://request.home                       | Request movies / TV shows  |
 
@@ -91,7 +92,7 @@ The following set of services forms the media server stack of the home lab. Only
 
 ## TODOS ##
 
-- [ ] Autoconfiguration of dashboard
+- [ ] Configuration of dashboard
 - [x] Media streaming - sonarr, radarr, jackett etc
 - [ ] Storage server
 - [ ] Monitoring
