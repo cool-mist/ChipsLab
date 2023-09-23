@@ -100,32 +100,6 @@ services:
       - '/home/chips/media/files/transmission:/downloads'
     restart: unless-stopped
 
-  lidarr:
-    image: 'ghcr.io/linuxserver/lidarr'
-    container_name: music
-    environment:
-      PUID: 1000
-      PGID: 1000
-      TZ: 'Asia/Calcutta'
-    volumes:
-      - '/home/chips/media/configs/lidarr:/config'
-      - '/home/chips/media/files/lidarr:/data'
-      - '/home/chips/media/files/transmission:/downloads'
-    restart: unless-stopped
-
-  readarr:
-    image: 'hotio/readarr:nightly'
-    container_name: books
-    environment:
-      PUID: 1000
-      PGID: 1000
-      TZ: 'Asia/Calcutta'
-    volumes:
-      - '/home/chips/media/configs/readarr:/config'
-      - '/home/chips/media/files/readarr:/data'
-      - '/home/chips/media/files/transmission:/downloads'
-    restart: unless-stopped
-
   bazarr:
     image: 'ghcr.io/linuxserver/bazarr'
     container_name: subtitles
