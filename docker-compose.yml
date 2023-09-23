@@ -6,6 +6,7 @@ services:
     restart: unless-stopped
     ports:
       - '443:443'
+      - '8096:80'
     volumes:
       - './nginx/nginx.conf:/etc/nginx/nginx.conf:ro'
       - './nginx/cert.key:/etc/nginx/cert.key'
@@ -37,6 +38,7 @@ services:
       - './.volumes/dashboard/app-data:/app/data'
     environment:
       - PASSWORD=changeme
+    restart: unless-stopped
 
   excalidraw:
     image: 'excalidraw/excalidraw:latest'
@@ -133,8 +135,7 @@ services:
       TZ: 'Asia/Calcutta'
     volumes:
       - '/home/chips/media/configs/bazarr:/config'
-      - '/home/chips/media/files/bazarr:/data'
-      - '/home/chips/media/files/transmission:/downloads'
+      - '/home/chips/media/files:/data'
     restart: unless-stopped
 
   jellyfin:
