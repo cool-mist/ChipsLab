@@ -22,6 +22,8 @@
 
 All containers in the `docker-compose.yml` file would share the same network. All the containers are addressible by the `container_name` hostname as it appears in the docker compose configuration file.
 
+![Arch](./assets/img/ChipsLab.png)
+
 ## DNS Resolution ##
 
 In `etc/resolv.conf` on the host machine, add an additional nameserver pointing to `127.0.0.1`.
