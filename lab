@@ -1,0 +1,28 @@
+#! /bin/bash
+
+DOCKER_COMPOSE_FILE="$CHIPS_LAB_HOME/docker-compose.yml"
+DOCKER_COMPOSE_PROJECT_NAME="chips-lab"
+CMD_LIST="list"
+CMD_START="start"
+CMD_STOP="stop"
+CMD_RESTART="restart"
+
+CMD=$1
+CONTAINER=$2
+
+if [[ $CMD == $CMD_LIST ]]; then
+  docker-compose -f $DOCKER_COMPOSE_FILE -p $DOCKER_COMPOSE_PROJECT_NAME ps --format json | jq -r '.[] | [.Service, .Name, .Status] | @tsv'
+fi
+
+if [[ $CMD == $CMD_START ]]; then
+  docker-compose -f $DOCKER_COMPOSE_FILE start $CONTAINER
+fi
+
+if [[ $CMD == $CMD_STOP ]]; then
+  docker-compose -f $DOCKER_COMPOSE_FILE stop $CONTAINER
+fi
+
+if [[ $CMD == $CMD_RESTART ]]; then
+  docker-compose -f $DOCKER_COMPOSE_FILE stop $CONTAINER
+  docker-compose -f $DOCKER_COMPOSE_FILE start $CONTAINER
+fi
