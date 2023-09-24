@@ -22,7 +22,7 @@
 
 All containers in the `docker-compose.yml` file would share the same network. All the containers are addressible by the `container_name` hostname as it appears in the docker compose configuration file.
 
-![Arch](./assets/img/ChipsLab.png)
+![Arch](./docs/assets/img/ChipsLab.png)
 
 ## DNS Resolution ##
 
