@@ -92,6 +92,16 @@ The following set of services forms the media server stack of the home lab. Only
 
 - An interface to request movies or tv shows. Configure sonarr and radarr and their corresponding profiles from the settings.
 
+## Lab CLI ##
+
+| desc                 | cmd                          |
+|----------------------|------------------------------|
+| Start container(s)   | lab start [container name]   |
+| Stop container(s)    | lab stop [container name]    |
+| List all containers  | lab list                     |
+| Restart container(s) | lab restart [container name] |
+
+
 ## TODOS ##
 
 - [ ] Configuration of dashboard
