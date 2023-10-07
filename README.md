@@ -16,13 +16,10 @@
 | [Radarr](https://radarr.video/)                           | https://movies.home                        | Movie monitoring           |
 | [Bazarr](https://www.bazarr.media/)                       | https://subtitles.home                     | Subtitles monitoring       |
 | [Jellyfin](https://jellyfin.org/)                         | https://entertainment.home, http://IP:8096 | Media server               |
-| [Ombi](https://ombi.io/)                                  | https://request.home                       | Request movies / TV shows  |
 
 ## Network ##
 
 All containers in the `docker-compose.yml` file would share the same network. All the containers are addressible by the `container_name` hostname as it appears in the docker compose configuration file.
-
-![Arch](./docs/assets/img/ChipsLab.png)
 
 ## DNS Resolution ##
 
@@ -87,10 +84,6 @@ The following set of services forms the media server stack of the home lab. Only
 
 - An interface to watch content. This is also exposed on http port so that it is possible to connect to it without updating the DNS of the system connecting to it in the home network.
 - Configure sonarr and radarr so that Jellyfin knows where to serve movie or tv show content from.
-
-#### Ombi ####
-
-- An interface to request movies or tv shows. Configure sonarr and radarr and their corresponding profiles from the settings.
 
 ## Lab CLI ##
 
