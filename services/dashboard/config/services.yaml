@@ -2,17 +2,65 @@
 # For configuration options and examples, please see:
 # https://gethomepage.dev/en/configs/services
 
-- My First Group:
-    - My First Service:
-        href: http://localhost/
-        description: Homepage is awesome
+- System:
+  - Portainer:
+      icon: portainer.svg
+      href: https://docker.home
+      description: Container status
+      container: portainer
 
-- My Second Group:
-    - My Second Service:
-        href: http://localhost/
-        description: Homepage is the best
+  - Pihole:
+      icon: pi-hole.svg
+      href: https://dns.home/admin
+      description: DNS managment
+      container: pihole
+      widget:
+        type: pihole
+        url: http://pihole
 
-- My Third Group:
-    - My Third Service:
-        href: http://localhost/
-        description: Homepage is 😎
+- Productivity:
+  - Excalidraw:
+      icon: excalidraw.svg
+      href: https://draw.home
+      description: Diagramming tool
+      container: excalidraw
+
+  - Vaultwarden:
+      icon: vaultwarden.svg
+      href: https://vault.home
+      description: Password store
+      container: vaultwarden
+
+- Media:
+  - ChipsFlix:
+      icon: jellyfin.svg
+      href: https://entertainment.home
+      container: entertainment
+
+  - Add Movies:
+      icon: radarr.svg
+      href: https://movies.home
+      container: movies
+
+  - Add TV Shows:
+      icon: sonarr.svg
+      href: https://series.home
+      container: series
+
+  - Add Subtitles:
+      icon: bazarr.svg
+      href: https://subtitles.home
+      container: subtitles
+
+  - Indexer:
+      icon: prowlarr.svg
+      href: https://indexer.home
+      container: indexer
+
+  - Torrent Client:
+      icon: transmission.svg
+      href: https://torrent.home
+      container: transmission
+      widget:
+        type: transmission
+        url: http://transmission:9091

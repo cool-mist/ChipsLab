@@ -35,14 +35,9 @@ services:
   dashboard:
     image: ghcr.io/benphelps/homepage:latest
     container_name: dashboard
-    environment:
-      PUID: 1000 
-      PGID: 1000
-    ports:
-      - 3000:3000
     volumes:
       - './dashboard/config:/app/config'
-      - '/var/run/docker.sock:/var/run/docker.sock:ro'
+      - '/var/run/docker.sock:/var/run/docker.sock'
     restart: unless-stopped
 
   excalidraw:

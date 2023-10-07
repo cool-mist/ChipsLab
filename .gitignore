@@ -3,3 +3,4 @@
 **.pem
 .volumes
 vault
+**/homepage.log

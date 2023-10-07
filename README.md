@@ -97,7 +97,8 @@ The following set of services forms the media server stack of the home lab. Only
 
 ## TODOS ##
 
-- [ ] Configuration of dashboard
+- [ ] Speedtest
+- [x] Configuration of dashboard
 - [x] Media streaming - sonarr, radarr, jackett etc
 - [ ] Storage server
 - [ ] Monitoring
