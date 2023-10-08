@@ -4,3 +4,4 @@
 .volumes
 vault
 **/homepage.log
+**/.env

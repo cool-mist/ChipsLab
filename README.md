@@ -16,6 +16,8 @@
 | [Radarr](https://radarr.video/)                           | https://movies.home                        | Movie monitoring           |
 | [Bazarr](https://www.bazarr.media/)                       | https://subtitles.home                     | Subtitles monitoring       |
 | [Jellyfin](https://jellyfin.org/)                         | https://entertainment.home, http://IP:8096 | Media server               |
+| [Grafana](https://grafana.org/)                           | https://graph.home                         | Data visualization         |
+| [InfluxDb](https://www.influxdata.com/)                   | https://db.home                            | Time series database       |
 
 ## Network ##
 
@@ -101,9 +103,9 @@ The following set of services forms the media server stack of the home lab. Only
 - [x] Configuration of dashboard
 - [x] Media streaming - sonarr, radarr, jackett etc
 - [ ] Storage server
-- [ ] Monitoring
+- [x] Monitoring
 - [ ] Genealogy
-- [ ] Database
+- [x] Database
 - [x] Password manager
 - [ ] Note taking
 - [ ] Photos

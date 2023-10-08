@@ -6,6 +6,10 @@ CMD_LIST="list"
 CMD_START="start"
 CMD_STOP="stop"
 CMD_RESTART="restart"
+CMD_LOGS="logs"
+CMD_SH="sh"
+CMD_DOWN="down"
+CMD_UP="up"
 
 CMD=$1
 CONTAINER=$2
@@ -25,4 +29,20 @@ fi
 if [[ $CMD == $CMD_RESTART ]]; then
   docker-compose -f $DOCKER_COMPOSE_FILE stop $CONTAINER
   docker-compose -f $DOCKER_COMPOSE_FILE start $CONTAINER
+fi
+
+if [[ $CMD == $CMD_LOGS ]]; then
+  docker-compose -f $DOCKER_COMPOSE_FILE logs $CONTAINER -f
+fi
+
+if [[ $CMD == $CMD_SH ]]; then
+  docker-compose -f $DOCKER_COMPOSE_FILE exec -it $CONTAINER sh
+fi
+
+if [[ $CMD == $CMD_DOWN ]]; then
+  docker-compose -f $DOCKER_COMPOSE_FILE down $CONTAINER
+fi
+
+if [[ $CMD == $CMD_UP ]]; then
+  docker-compose -f $DOCKER_COMPOSE_FILE up $CONTAINER -d
 fi
