@@ -15,7 +15,7 @@ CMD=$1
 CONTAINER=$2
 
 if [[ $CMD == $CMD_LIST ]]; then
-  docker-compose -f $DOCKER_COMPOSE_FILE -p $DOCKER_COMPOSE_PROJECT_NAME ps --format json | jq -r '.[] | [.Service, .Name, .Status] | @tsv'
+  docker-compose -f $DOCKER_COMPOSE_FILE -p $DOCKER_COMPOSE_PROJECT_NAME ps --format json | jq -r '[.Service, .Name, .Status] | @tsv'
 fi
 
 if [[ $CMD == $CMD_START ]]; then
