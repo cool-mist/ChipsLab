@@ -71,7 +71,7 @@ services:
       PGID: 1000
       TZ: 'Asia/Calcutta'
     volumes:
-      - '/home/chips/media/configs/prowlarr:/config'
+      - '${MEDIA_HOME}/configs/prowlarr:/config'
     restart: unless-stopped
 
   sonarr:
@@ -82,9 +82,9 @@ services:
       PGID: 1000
       TZ: 'Asia/Calcutta'
     volumes:
-      - '/home/chips/media/configs/sonarr:/config'
-      - '/home/chips/media/files/sonarr:/data'
-      - '/home/chips/media/files/transmission:/downloads'
+      - '${MEDIA_HOME}/configs/sonarr:/config'
+      - '${MEDIA_HOME}/files/sonarr:/data'
+      - '${MEDIA_HOME}/files/transmission:/downloads'
     restart: unless-stopped
 
   radarr:
@@ -95,9 +95,9 @@ services:
       PGID: 1000
       TZ: 'Asia/Calcutta'
     volumes:
-      - '/home/chips/media/configs/radarr:/config'
-      - '/home/chips/media/files/radarr:/data'
-      - '/home/chips/media/files/transmission:/downloads'
+      - '${MEDIA_HOME}/configs/radarr:/config'
+      - '${MEDIA_HOME}/files/radarr:/data'
+      - '${MEDIA_HOME}/files/transmission:/downloads'
     restart: unless-stopped
 
   bazarr:
@@ -108,8 +108,8 @@ services:
       PGID: 1000
       TZ: 'Asia/Calcutta'
     volumes:
-      - '/home/chips/media/configs/bazarr:/config'
-      - '/home/chips/media/files:/data'
+      - '${MEDIA_HOME}/configs/bazarr:/config'
+      - '${MEDIA_HOME}/files:/data'
     restart: unless-stopped
 
   jellyfin:
@@ -123,8 +123,8 @@ services:
       - '/dev/dri/renderD128:/dev/dri/renderD128'
       - '/dev/dri/card0:/dev/dri/card0'
     volumes:
-      - '/home/chips/media/configs/jellyfin:/config'
-      - '/home/chips/media/files:/data'
+      - '${MEDIA_HOME}/configs/jellyfin:/config'
+      - '${MEDIA_HOME}/files:/data'
     restart: unless-stopped
 
   transmission:
@@ -141,8 +141,8 @@ services:
       PEERPORT: #optional
       HOST_WHITELIST: #optional
     volumes:
-      - '/home/chips/media/configs/transmission:/config'
-      - '/home/chips/media/files/transmission:/downloads'
+      - '${MEDIA_HOME}/configs/transmission:/config'
+      - '${MEDIA_HOME}/files/transmission:/downloads'
     # Ports:
     #   - 9091:9091
     #   - 51413:51413
@@ -171,4 +171,33 @@ services:
     environment:
       - GF_SECURITY_ADMIN_USER=${GRAFANA_USERNAME}
       - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD}
+    restart: unless-stopped
+
+  calibre-web:
+    image: lscr.io/linuxserver/calibre-web:latest
+    container_name: calibre-web
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: 'Asia/Calcutta'
+    volumes:
+      - '${MEDIA_HOME}/configs/calibre:/config'
+      - '${MEDIA_HOME}/files/calibre:/books'
+    restart: unless-stopped
+
+  calibre:
+    image: lscr.io/linuxserver/calibre:latest
+    container_name: calibre
+    security_opt:
+      - seccomp:unconfined #optional
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: 'Asia/Calcutta'
+    ports:
+      - '8054:8080'
+      - '8055:8081'
+      - '8156:8181'
+    volumes:
+      - '${MEDIA_HOME}/files/calibre:/config'
     restart: unless-stopped

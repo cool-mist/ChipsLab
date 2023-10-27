@@ -87,6 +87,12 @@ The following set of services forms the media server stack of the home lab. Only
 - An interface to watch content. This is also exposed on http port so that it is possible to connect to it without updating the DNS of the system connecting to it in the home network.
 - Configure sonarr and radarr so that Jellyfin knows where to serve movie or tv show content from.
 
+#### Calibre-Web ####
+
+- Ebook reading.
+- Default user/password is admin/admin123
+- Open and setup the default Calibre Library by opening `localhost:8054`
+
 ## Lab CLI ##
 
 | desc                 | cmd                          |
@@ -102,6 +108,7 @@ The following set of services forms the media server stack of the home lab. Only
 - [ ] Speedtest
 - [x] Configuration of dashboard
 - [x] Media streaming - sonarr, radarr, jackett etc
+- [ ] Readarr + calibre automation
 - [ ] Storage server
 - [x] Monitoring
 - [ ] Genealogy
