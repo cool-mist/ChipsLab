@@ -18,6 +18,8 @@
 | [Jellyfin](https://jellyfin.org/)                         | https://entertainment.home, http://IP:8096 | Media server               |
 | [Grafana](https://grafana.org/)                           | https://graph.home                         | Data visualization         |
 | [InfluxDb](https://www.influxdata.com/)                   | https://db.home                            | Time series database       |
+| [Calibre](https://github.com/linuxserver/docker-calibre)  | http://ip:8054                             | Ebook manager, reader      |
+| [Calibre-Web](https://github.com/janeczku/calibre-web)    | https://books.home                         | Ebook reader               |
 
 ## Network ##
 

@@ -32,11 +32,17 @@
       container: vaultwarden
 
 - Media:
+  - Books:
+      icon: calibre.svg
+      href: http://localhost:8054
+      container: calibre
+
   - ChipsFlix:
       icon: jellyfin.svg
       href: https://entertainment.home
       container: entertainment
 
+- Media Management:
   - Add Movies:
       icon: radarr.svg
       href: https://movies.home
